@@ -18,7 +18,7 @@ This repository contains three custom-built technical indicators featuring advan
 |-----------|---------------|------------------------|-------------|
 | **ALMA v1.02** | Dual-slope filtering with adaptive thresholds | Gaussian kernel + Median Absolute Deviation | Advanced trend detection |
 | **RSI Multi-Timeframe** | Temporal interpolation between timeframes | Linear interpolation with ratio calculations | Cross-timeframe momentum |
-| **RSI TradingView** | Exact Wilder's smoothing replication | RMA vs EMA mathematical precision | Cross-platform compatibility |
+
 
 ---
 
