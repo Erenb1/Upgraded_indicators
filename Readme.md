@@ -75,37 +75,7 @@ double rsi_interp = rsi_start + (rsi_end - rsi_start) * ratio;
 - **Error Handling:** Comprehensive buffer validation and error checking
 - **Performance:** Efficient period ratio calculations
 - **Flexibility:** Toggle between interpolated and discrete modes
-
-### RSI_TradingView.mq5
-**Exact TradingView RSI Replication**
-
-**Precision Features:**
-- **Wilder's RMA smoothing** (not standard EMA like MT5 default)
-- **Perfect mathematical replication** of TradingView calculations
-- **Optimized initialization** with proper historical averaging
-- **Cross-platform signal consistency**
-
-**Mathematical Precision:**
-```cpp
-// Wilder's Running Moving Average (RMA) - exact TradingView formula
-if(i == rates_total - RSI_Period - 1) {
-    // Initial average calculation
-    UpBuffer[i] = sum_up / RSI_Period;
-    DownBuffer[i] = sum_down / RSI_Period;
-} else {
-    // Wilder's smoothing formula
-    UpBuffer[i] = (UpBuffer[i+1] * (RSI_Period - 1) + UpBuffer[i]) / RSI_Period;
-    DownBuffer[i] = (DownBuffer[i+1] * (RSI_Period - 1) + DownBuffer[i]) / RSI_Period;
-}
-```
-
-**Critical Difference:**
-- **Standard MT5 RSI:** Uses exponential moving average (EMA)
-- **TradingView RSI:** Uses Wilder's smoothing (RMA)
-- **This Implementation:** Exact TradingView replication for cross-platform consistency
-
 ---
-
 ## 🎯 Installation & Usage
 
 ### Quick Start
@@ -124,7 +94,6 @@ Offset: 0.85 (responsive to recent price action)
 Slope Period 1: 30 (short-term trend)
 Slope Period 2: 150 (long-term trend)
 ```
-
 #### RSI Multi-Timeframe (Momentum Analysis)
 ```
 Timeframe 2: H1 (or higher for perspective)
@@ -132,23 +101,12 @@ RSI Period: 14 (standard momentum period)
 Applied Price: Close
 Interpolate: true (smooth transitions)
 ```
-
-#### RSI TradingView (Cross-Platform)
-```
-RSI Period: 14
-Applied Price: Close
-(No additional parameters - exact TradingView replication)
-```
-
----
-
 ## 📈 Advanced Applications
 
 ### Quantitative Strategy Development
 - **Factor Research:** Custom indicators as alpha-generating factors
 - **Regime Detection:** ALMA slope analysis for market condition identification  
 - **Multi-Timeframe Momentum:** Cross-timeframe RSI for momentum confirmation
-- **Signal Validation:** TradingView RSI for backtesting consistency
 
 ### Risk Management Integration
 - **Trend Confirmation:** ALMA color coding for directional bias
@@ -168,7 +126,6 @@ Applied Price: Close
 - **Gaussian Kernel Theory:** Superior smoothing through normal distribution weighting
 - **Robust Statistics:** Median absolute deviation for outlier-resistant thresholds
 - **Temporal Mathematics:** Linear interpolation for time-series synchronization
-- **Smoothing Theory:** Wilder's vs exponential smoothing mathematical differences
 
 ### Computational Optimization
 - **Memory Management:** Static arrays and weight caching for performance
@@ -211,11 +168,6 @@ Applied Price: Close
 **Challenge 2:** Need RSI perspective from higher timeframes on lower timeframe charts  
 **Solution:** Developed temporal interpolation for smooth cross-timeframe RSI  
 **Result:** Multi-scale momentum analysis in real-time  
-
-**Challenge 3:** TradingView and MT5 RSI calculations differ, causing backtest discrepancies  
-**Solution:** Reverse-engineered and replicated exact Wilder's smoothing  
-**Result:** Perfect cross-platform signal consistency  
-
 ---
 
 ## 📋 Technical Specifications
